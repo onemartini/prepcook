@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prep Cook — Product Concept Brief</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel2: #20242d;
+      --text: #f3f0e8;
+      --muted: #b7b1a5;
+      --accent: #ffb84d;
+      --accent2: #7dd3fc;
+      --green: #8fd694;
+      --orange: #ffb86b;
+      --red: #ff6b6b;
+      --border: #303642;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #242a36, var(--bg) 42%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--accent2); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 24px 80px; }
+    header { padding: 64px 0 36px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 700; }
+    h1 { font-size: clamp(44px, 8vw, 92px); line-height: .92; margin: 14px 0 20px; letter-spacing: -0.06em; }
+    .subtitle { font-size: clamp(20px, 3vw, 30px); max-width: 920px; color: var(--muted); }
+    h2 { font-size: 36px; margin: 64px 0 18px; letter-spacing: -0.03em; }
+    h3 { font-size: 24px; margin: 32px 0 12px; letter-spacing: -0.02em; }
+    p { color: var(--muted); max-width: 900px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    @media (max-width: 820px) { .span-4, .span-6, .span-8 { grid-column: span 12; } }
+    .pill { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; color: var(--muted); font-size: 13px; margin: 4px 6px 4px 0; }
+    .accent { color: var(--accent); }
+    .blue { color: var(--accent2); }
+    .green { color: var(--green); }
+    .orange { color: var(--orange); }
+    .red { color: var(--red); }
+    .quote { font-size: 26px; color: var(--text); border-left: 4px solid var(--accent); padding-left: 20px; margin: 28px 0; max-width: 940px; }
+    .flow { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+    .flow span { background: var(--panel2); border: 1px solid var(--border); padding: 10px 12px; border-radius: 12px; color: var(--text); }
+    .arrow { color: var(--accent); align-self: center; }
+    table { width: 100%; border-collapse: collapse; margin: 18px 0 30px; overflow: hidden; border-radius: 16px; }
+    th, td { border-bottom: 1px solid var(--border); padding: 14px 12px; text-align: left; vertical-align: top; }
+    th { color: var(--text); background: var(--panel2); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+    td { color: var(--muted); }
+    .difficulty { white-space: nowrap; font-weight: 700; }
+    .low { color: var(--green); }
+    .med { color: var(--orange); }
+    .high { color: var(--red); }
+    .timeline { counter-reset: phase; }
+    .phase { position: relative; padding-left: 54px; margin: 28px 0; }
+    .phase:before {
+      counter-increment: phase;
+      content: counter(phase);
+      position: absolute; left: 0; top: 0;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--accent); color: #111; display: grid; place-items: center; font-weight: 800;
+    }
+    code, pre { background: #0b0d11; border: 1px solid var(--border); border-radius: 14px; color: #e8e0d0; }
+    pre { padding: 18px; overflow: auto; }
+    .small { font-size: 14px; color: var(--muted); }
+    .footer { margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--border); color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Product concept brief</div>
+      <h1>Prep Cook</h1>
+      <div class="subtitle">A DJ discovery, capture, annotation, acquisition, and preparation system that turns fleeting musical inspiration into a performance-ready library.</div>
+    </header>
+
+    <section>
+      <div class="quote">Prep Cook is not just a DJ library manager. It is a musical memory system: capture what moved you, understand why, legally acquire it when needed, prepare it for performance, and let the system learn from your taste over time.</div>
+    </section>
+
+    <section>
+      <h2>Core thesis</h2>
+      <div class="grid">
+        <div class="card span-4"><h3>Discovery is broken</h3><p>Spotify and SoundCloud recommendations are useful but shallow. DJs need graph traversal, tastemaker signals, recency, comments, reposts, scene context, and personal intent signals.</p></div>
+        <div class="card span-4"><h3>Inspiration is perishable</h3><p>The key product moment is: “I like this part.” Prep Cook should capture the track, timestamp, voice note, and context before the idea disappears.</p></div>
+        <div class="card span-4"><h3>Preparation is fragmented</h3><p>DJs discover in one place, buy in another, analyze elsewhere, and prepare in Rekordbox or Serato. Prep Cook can connect the whole chain.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>The full workflow</h2>
+      <div class="flow">
+        <span>Discover</span><b class="arrow">→</b><span>Save moment</span><b class="arrow">→</b><span>Annotate</span><b class="arrow">→</b><span>Recommend</span><b class="arrow">→</b><span>Acquire</span><b class="arrow">→</b><span>Analyze</span><b class="arrow">→</b><span>Cue / loop</span><b class="arrow">→</b><span>Export</span><b class="arrow">→</b><span>Learn</span>
+      </div>
+      <p>The scrapbook is the hub. Everything either creates, enriches, or uses scrapbook entries and track dossiers.</p>
+    </section>
+
+    <section>
+      <h2>Major product areas</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>1. Scrapbook</h3>
+          <p>Frictionless capture of musical moments from SoundCloud, Spotify, CarPlay, mobile, voice, widgets, and eventually desktop.</p>
+          <span class="pill">Track</span><span class="pill">Timestamp</span><span class="pill">Voice note</span><span class="pill">Tags</span><span class="pill">Source</span>
+        </div>
+        <div class="card span-6">
+          <h3>2. Expert annotation</h3>
+          <p>AI commentary on genre, production, cultural context, musical relatives, DJ utility, loops, and why the user may have saved the moment.</p>
+          <span class="pill">DJ</span><span class="pill">Producer</span><span class="pill">Historian</span><span class="pill">Crate digger</span><span class="pill">Scene insider</span>
+        </div>
+        <div class="card span-6">
+          <h3>3. Discovery graph</h3>
+          <p>Traverse SoundCloud recommendations, reposts, comments, tastemakers, mixes, labels, artists, and user saves. Rank candidates by signals that matter to DJs.</p>
+        </div>
+        <div class="card span-6">
+          <h3>4. Track dossier</h3>
+          <p>A living page for every track: annotations, audio analysis, cue points, loops, purchase source, notes, similar tracks, transitions, and usage history.</p>
+        </div>
+        <div class="card span-6">
+          <h3>5. Acquisition assistant</h3>
+          <p>Find legal download sources, compare formats and prices, assist purchase/download, import files, dedupe, and attach metadata.</p>
+        </div>
+        <div class="card span-6">
+          <h3>6. DJ prep</h3>
+          <p>Generate BPM, key, phrase boundaries, loop candidates, hot cues, memory cues, comments, playlists, and Rekordbox/Mixed In Key-compatible outputs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Feature list ranked by implementation difficulty</h2>
+      <table>
+        <thead><tr><th>Feature</th><th>Difficulty</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Scrapbook entries</td><td class="difficulty low">Very low</td><td>Database objects for track, timestamp, note, tags, source, and status.</td></tr>
+          <tr><td>Voice notes + transcription</td><td class="difficulty low">Low</td><td>Standard mobile recording and speech-to-text workflow.</td></tr>
+          <tr><td>Basic AI annotations</td><td class="difficulty low">Low</td><td>LLM-generated commentary from metadata and user notes.</td></tr>
+          <tr><td>Multiple expert personas</td><td class="difficulty low">Low</td><td>Mostly prompt design and structured outputs.</td></tr>
+          <tr><td>Track identification</td><td class="difficulty low">Low–medium</td><td>Metadata integration or audio fingerprinting fallback.</td></tr>
+          <tr><td>SoundCloud-first discovery traversal</td><td class="difficulty med">Medium</td><td>Requires API usage, graph traversal, dedupe, ranking, and careful ToS compliance.</td></tr>
+          <tr><td>Recommendation ranking</td><td class="difficulty med">Medium</td><td>Start heuristic, then use saves/revisits/acquisitions as signals.</td></tr>
+          <tr><td>CarPlay capture</td><td class="difficulty med">Medium</td><td>Very useful surface, but constrained UI and platform review requirements.</td></tr>
+          <tr><td>Action Button / widget capture</td><td class="difficulty med">Medium</td><td>Likely more realistic than wake-word activation.</td></tr>
+          <tr><td>Audio analysis from accessible streams/files</td><td class="difficulty med">Medium</td><td>BPM/key/energy are manageable; phrase quality takes iteration.</td></tr>
+          <tr><td>Loop detection</td><td class="difficulty high">Medium–high</td><td>Good musical loops require structure, beat grid, and taste judgment.</td></tr>
+          <tr><td>Cue point generation</td><td class="difficulty high">Medium–high</td><td>Requires reliable structure detection and DJ-specific heuristics.</td></tr>
+          <tr><td>Rekordbox XML export</td><td class="difficulty high">Medium–high</td><td>Technically feasible but full fidelity and edge cases matter.</td></tr>
+          <tr><td>Acquisition assistant</td><td class="difficulty high">High</td><td>Store-by-store variability, authentication, purchase flow, downloads, and ToS review.</td></tr>
+          <tr><td>Cross-app capture</td><td class="difficulty high">High</td><td>Mobile OS restrictions limit what is possible.</td></tr>
+          <tr><td>Wake-word assistant</td><td class="difficulty high">Very high</td><td>Third-party apps cannot generally provide system-wide always-listening wake words.</td></tr>
+          <tr><td>Transition recommendation engine</td><td class="difficulty high">Very high</td><td>Hard ML/product problem requiring play history and transition outcomes.</td></tr>
+          <tr><td>Personal DJ taste model</td><td class="difficulty high">Very high</td><td>Powerful moat, but needs longitudinal behavioral data.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>SoundCloud-first validation path</h2>
+      <p>The current strategic decision: prove the front half of the product using SoundCloud before investing heavily in acquisition.</p>
+      <div class="grid">
+        <div class="card span-4"><h3>Hypothesis</h3><p>SoundCloud streaming plus metadata may be enough to validate discovery, capture, annotation, and recommendation.</p></div>
+        <div class="card span-4"><h3>Test</h3><p>Use 100 real target tracks. Ask whether streaming access allows BPM, key, phrases, loops, embeddings, and useful annotations.</p></div>
+        <div class="card span-4"><h3>Decision</h3><p>If DJs still want to use the scrapbook without owned files, delay acquisition. If they quickly want to play the tracks, move acquisition earlier.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Phased roadmap</h2>
+      <div class="timeline">
+        <div class="phase"><h3>SoundCloud scrapbook MVP</h3><p>Save SoundCloud moments, timestamps, notes, voice memos, and basic track metadata. Goal: prove the core capture habit.</p></div>
+        <div class="phase"><h3>Expert annotation layer</h3><p>Add DJ, producer, historian, crate-digger, and scene-insider annotations. Goal: make saved moments enjoyable and useful to revisit.</p></div>
+        <div class="phase"><h3>Discovery graph</h3><p>Traverse related tracks, reposts, comments, mixes, tastemakers, and labels. Rank by recency, engagement, credibility, and similarity to saved moments.</p></div>
+        <div class="phase"><h3>Audio analysis</h3><p>Where audio access is available, generate BPM, key, energy curve, phrase boundaries, and preliminary loop candidates.</p></div>
+        <div class="phase"><h3>Track dossier</h3><p>Consolidate all knowledge about a track: annotations, analysis, notes, versions, musical relatives, and saved moments.</p></div>
+        <div class="phase"><h3>Acquisition assistant</h3><p>Only after clear need: find legal purchase sources, compare formats, assist download/import, and connect the owned file to the existing dossier.</p></div>
+        <div class="phase"><h3>DJ prep/export</h3><p>Generate cue points, loops, comments, playlists, and Rekordbox-compatible exports.</p></div>
+        <div class="phase"><h3>Headless expert</h3><p>Voice-first assistant that answers technical and taste questions by traversing the personal music graph.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Headless expert assistant</h2>
+      <p>A voice-first interface for asking questions about the current track, the user’s library, and broader musical context.</p>
+      <div class="grid">
+        <div class="card span-4"><h3>Track-level questions</h3><p>“Why does this groove work?” “Where should I mix in?” “What does this remind me of?”</p></div>
+        <div class="card span-4"><h3>Library-level questions</h3><p>“Do I own anything like this?” “What do I usually play after tracks like this?”</p></div>
+        <div class="card span-4"><h3>Scene-level questions</h3><p>“Why are new wave edits popular now?” “Which labels are pushing this sound?”</p></div>
+      </div>
+      <pre>Example graph traversal:
+Saved moment → Track → Artist → Label → Genre → Similar tracks → User notes → Cue points → DJ sets → Transition history</pre>
+    </section>
+
+    <section>
+      <h2>Core data model</h2>
+      <pre>Track
+  artist, title, versions, source IDs, artwork, duration
+
+ScrapbookEntry
+  track_id, timestamp, source_app, user_note, voice_note, tags, created_at
+
+Annotation
+  track_id, persona, claim, confidence, source, created_at
+
+AudioAnalysis
+  track_id, bpm, key, beat_grid, phrase_boundaries, energy_curve, loop_candidates
+
+CuePoint
+  track_id, time, type, label, color, confidence, source
+
+Acquisition
+  track_id, store, price, format, purchase_status, file_id
+
+Transition
+  from_track_id, to_track_id, mix_point, confidence, source
+
+UserTasteSignal
+  action_type, track_id, weight, timestamp</pre>
+    </section>
+
+    <section>
+      <h2>Network effects and moat</h2>
+      <div class="grid">
+        <div class="card span-6"><h3>Personal moat</h3><p>The system learns what the user saves, revisits, buys, prepares, exports, and plays. That becomes a taste model generic music services do not have.</p></div>
+        <div class="card span-6"><h3>Community moat</h3><p>At scale, Prep Cook can learn which tracks DJs mark, loop, cue, buy, export, and actually use in transitions.</p></div>
+      </div>
+      <p>Long-term insight: the valuable dataset is not just “likes.” It is <span class="accent">DJ intent</span>: where people mark cue points, what they buy after discovery, which loops survive, and what gets played.</p>
+    </section>
+
+    <section>
+      <h2>Open questions</h2>
+      <ul>
+        <li>How much analysis can be done from SoundCloud streaming within supported terms?</li>
+        <li>How often do DJs want to acquire a track immediately after saving it?</li>
+        <li>Is CarPlay a meaningful capture surface for real users?</li>
+        <li>Which expert persona produces the most “wow” moment?</li>
+        <li>What is the minimum useful loop/cue export workflow?</li>
+        <li>Which acquisition sources cover the target users’ actual buying behavior?</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Suggested beachhead</h2>
+      <div class="quote">Start with SoundCloud-first capture + expert annotation + discovery ranking. Do not start with acquisition, Rekordbox export, or wake-word control unless the SoundCloud MVP proves that users quickly hit the limits of streaming-only workflows.</div>
+      <p>The first adoption wedge is not “AI prepares your DJ library.” It is simpler: <strong>“Never lose a great musical moment again.”</strong></p>
+    </section>
+
+    <div class="footer small">Prepared as a working product brief for Prep Cook. This document summarizes the concept direction discussed so far and is intended to evolve as hypotheses are tested.</div>
+  </div>
+</body>
+</html>
