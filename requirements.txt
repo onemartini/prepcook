@@ -1,0 +1,12 @@
+librosa
+openl3
+pydub
+soundfile
+scikit-learn
+numpy
+matplotlib
+faiss-cpu
+requests
+torchaudio
+demucs
+requests
