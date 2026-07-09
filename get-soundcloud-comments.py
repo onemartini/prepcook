@@ -1,12 +1,29 @@
+import os
+
 import requests
 
-# === Config ===
-SOUNDCLOUD_CLIENT_ID = '0lHJfzZsgkBmbrpCc26TaA7IKDwNSm7z'
-TRACK_URL = 'https://soundcloud.com/francestherockstar/touch-my-body-x-oui-rockstar-edit-free-download'
+try:
+    from dotenv import load_dotenv
 
-# === OAuth Config ===
-SOUNDCLOUD_CLIENT_SECRET = 'SNSOOPDEKGvECDGdEavPmDBRaNNpPlMI'  # You'll need to get this from SoundCloud
+    load_dotenv()
+except ImportError:
+    pass
+
+# === Config ===
+SOUNDCLOUD_CLIENT_ID = os.environ.get('SOUNDCLOUD_CLIENT_ID')
+SOUNDCLOUD_CLIENT_SECRET = os.environ.get('SOUNDCLOUD_CLIENT_SECRET')
+TRACK_URL = os.environ.get(
+    'SOUNDCLOUD_TRACK_URL',
+    'https://soundcloud.com/francestherockstar/touch-my-body-x-oui-rockstar-edit-free-download',
+)
+
 AUTH_TOKEN_URL = 'https://api.soundcloud.com/oauth2/token'
+
+if not SOUNDCLOUD_CLIENT_ID or not SOUNDCLOUD_CLIENT_SECRET:
+    raise SystemExit(
+        'Missing SoundCloud credentials. Set SOUNDCLOUD_CLIENT_ID and '
+        'SOUNDCLOUD_CLIENT_SECRET (e.g. in a .env file; see .env.example).'
+    )
 
 def get_access_token(client_id, client_secret):
     """Get OAuth access token using client credentials flow"""

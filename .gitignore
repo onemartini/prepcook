@@ -71,6 +71,7 @@ desktop.ini
 # dotenv
 .env
 .env.*
+!.env.example
 
 # Audio / media files
 *.mp3

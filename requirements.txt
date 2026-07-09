@@ -9,4 +9,4 @@ faiss-cpu
 requests
 torchaudio
 demucs
-requests
+python-dotenv
